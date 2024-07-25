@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="w3-container">
+        <h2>Registration Form</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="w3-panel">
+                    {% for category, message in messages %}
+                        <div class="w3-panel w3-display-container {% if category == 'error' %}w3-red{% else %}w3-green{% endif %}">
+                            <span onclick="this.parentElement.style.display='none'"
+                            class="w3-button w3-large w3-display-topright">&times;</span>                            
+                            <h3>{{ category|capitalize }}</h3>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" class="w3-container w3-card-4 w3-light-grey">
+            {{ form.hidden_tag() }}
+            <div class="w3-section">
+                {{ form.full_name.label(class="w3-label") }}
+                {{ form.full_name(class="w3-input w3-border") }}
+            </div>
+            <div class="w3-section">
+                {{ form.date_of_birth.label(class="w3-label") }}
+                {{ form.date_of_birth(class="w3-input w3-border") }}
+            </div>
+            <div class="w3-section">
+                {{ form.email.label(class="w3-label") }}
+                {{ form.email(class="w3-input w3-border") }}
+            </div>
+            <div class="w3-section">
+                {{ form.password.label(class="w3-label") }}
+                {{ form.password(class="w3-input w3-border") }}
+            </div>
+            <div class="w3-section">
+                <button class="w3-button w3-blue w3-block" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
