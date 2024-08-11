@@ -1,1 +1,27 @@
-{"image":"mcr.microsoft.com/devcontainers/universal:2"}
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"version": "latest",
+			"noVncVersion": "1.2.0",
+			"password": "vscode"
+		},
+		"ghcr.io/akhildevelops/devcontainer-features/pip:0": {
+			"packages" : [
+				"flask",
+				"flask_wtf",
+				"email_validator"
+			]
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"ms-python.vscode-pylance",
+				"ms-python.python",
+				"ms-python.debugpy"
+			]
+		}
+	}
+}
